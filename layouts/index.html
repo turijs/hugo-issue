@@ -1,10 +1,12 @@
 {{ define "main" }}
-  {{ $bg := (resources.Get "images/image2.jpg").Resize "1800x" }}
 
-  {{ .Content }}
+<img src='{{ ((resources.Get "images/image1.jpg").Resize "500x").Permalink }}'>
 
-  {{ range readDir "./assets/images/" }}
-    <img src='{{ (resources.Get (printf "images/%s" .Name)).Permalink }}'>
-  {{ end }}
+{{ range readDir "./assets/images/" }}
+<img src='{{ (resources.Get (printf "images/%s" .Name)).Permalink }}'>
+{{ end }}
+
+<img src='{{ ((resources.Get "images/image2.jpg").Resize "500x").Permalink }}'>
+
 
 {{ end }}
